@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family:'Courier New', Courier, monospace;
+    background-color: rgb(240, 240, 240);
+}
+
+/*This is for the space in the 1024px above target design*/
+.container {
+    display: grid;
+    background-color: white;
+    width: 1024px;
+    margin: auto;
+}
+
+header img{
+    margin: 10px;
+    height: auto;
+    width: auto;
+}
+
+/*the grid to arrange the images*/
+main{ 
+    display: table-row-group;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.responsive-section img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*the paragraph css under the images*/
+.content{
+    margin: 20px 20px 20px 20px;
+    font-weight: 500;
+    margin: 10px;
+    line-height: 1.7;
+    font-size: 12px;
+}
+
+/*the footer css*/
+footer{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-size: 13px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/*The @media below dictate the website accroding to the width, 480px, 800px, 1024px*/
+
+@media screen and (min-width: 480px){
+    section {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    section{
+        width: 50%;
+        float: left;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    section{
+        width: 33.3%;
+        float: left;
+    }
+}
