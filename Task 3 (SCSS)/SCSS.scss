@@ -1,0 +1,205 @@
+/*The mixin breakpoint*/
+@mixin breakpoint ($minwidth, $maxwidth) {
+    @media screen and (min-width: $minwidth) and (max-width: $maxwidth){
+        @content;
+    }
+}
+
+/*basic 0 padding & margin styling*/
+%element-styling{
+    padding: 0;
+    margin: 0;
+}
+
+/*the different variables*/
+$bgcolor: #e2eff1;
+$row-circle-color: #4e89ae #43658b #ed6663 #ffa372;
+$hovercolor: #444;
+$hfcolor: #8ccff7;
+$fheight: 50px;
+
+/*container*/
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+/*body*/
+body {
+    @extend %element-styling;
+    background-color: $bgcolor;
+}
+
+/*header styling*/
+header {
+    @extend %element-styling;
+    background-color: $hfcolor;
+    height: auto;
+}
+
+/*to center the picture in the header*/
+.img {
+    display: flex;
+    justify-content: center;
+}
+
+/*400, 300, 200 pictures that are hidden using this*/
+.four, .three, .two {
+    display: none;
+}
+
+/*the space between the header and rows*/
+.space {
+    height: $fheight;
+}
+
+//*the rows stlying, plus changing the hover color*//
+.row-1 {
+    @extend %element-styling;
+    height: 40px;
+    background-color: nth($row-circle-color, 1);
+    cursor: pointer;
+    &:hover{
+        background-color: $hovercolor;
+    }
+}
+
+.row-2 {
+    @extend .row-1; /*the use of @extend*/
+    background-color: nth($row-circle-color, 2);
+}
+
+.row-3 {
+    @extend .row-1; /*the use of @extend*/
+    background-color: nth($row-circle-color, 3);
+}
+
+.row-4 {
+    @extend .row-1; /*the use of @extend*/
+    background-color: nth($row-circle-color, 4);
+}
+
+
+//*this is the grid for the circles*//
+.container-circles {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1px 5px;
+    grid-auto-flow: column;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+        "circle-1 circle-2 circle-3 cicle-4";
+    width: 40%;
+    margin: auto;
+    padding: 50px 0px 50px 0px;
+}
+  
+//*the circle stlying, plus changing the hover color*//
+.circle-1 {
+    grid-area: 1 / 1 / 2 / 2; 
+    height: 70px;
+    width: 70px;
+    background-color: nth($row-circle-color, 1);
+    border-radius: 70px;
+    display: inline-block;
+    cursor: pointer;
+    &:hover{
+        background-color: $hovercolor;
+    }
+}
+
+.circle-2 {
+    @extend .circle-1; /*the use of @extend*/
+    grid-area: 1 / 2 / 2 / 3; 
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    background-color: nth($row-circle-color, 2);
+}
+
+.circle-3 {
+    @extend .circle-1; /*the use of @extend*/
+    grid-area: 1 / 3 / 2 / 4; 
+    height: 90px;
+    width: 90px;
+    border-radius: 90px;
+    background-color: nth($row-circle-color, 3);
+}
+
+.circle-4 {
+    @extend .circle-1; /*the use of @extend*/
+    grid-area: 1 / 4 / 2 / 5; 
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    background-color: nth($row-circle-color, 4);
+}
+
+/*fotter styling*/
+footer{
+    @extend %element-styling;
+    background-color: $hfcolor;
+    height: $fheight;
+}
+
+
+//*Breakpoints for different elements*//
+
+/*400 x 400 picture*/
+.four {
+    @include breakpoint(801px, 3000px) {
+        display: block;
+    }
+}
+
+/*300 x 300 picture*/
+.three {
+    @include breakpoint(481px, 800px) {
+        display: block;
+    }
+}
+
+/*200 x 200 picture*/
+.two {
+    @include breakpoint(100px, 480px) {
+        display: block;
+    }
+}
+
+/*to stack circles vertically after*/
+.container-circles {
+    @include breakpoint(100px, 620px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr; 
+        gap: 3px 1px; 
+        grid-template-areas: 
+        "circle-1"
+        "circle-2"
+        "circle-3"
+        "circle-4"; 
+        justify-items: center; 
+        align-items: center; 
+    }
+}
+
+.circle-1 { 
+    @include breakpoint(100px, 620px){
+        grid-area: circle-1; 
+    }
+}
+.circle-2 { 
+    @include breakpoint(100px, 620px){
+        grid-area: circle-2; 
+    }
+}
+.circle-3 { 
+    @include breakpoint(100px, 620px){
+        grid-area: circle-3;
+    } 
+}
+.circle-4 { 
+    @include breakpoint(100px, 620px){
+        grid-area: circle-4;
+    } 
+}
