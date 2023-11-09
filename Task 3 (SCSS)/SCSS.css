@@ -1,0 +1,180 @@
+/*The mixin breakpoint*/
+/*basic 0 padding & margin styling*/
+footer, .row-1, .row-4, .row-3, .row-2, header, body {
+  padding: 0;
+  margin: 0;
+}
+
+/*the different variables*/
+/*container*/
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+/*body*/
+body {
+  background-color: #e2eff1;
+}
+
+/*header styling*/
+header {
+  background-color: #8ccff7;
+  height: auto;
+}
+
+/*to center the picture in the header*/
+.img {
+  display: flex;
+  justify-content: center;
+}
+
+/*400, 300, 200 pictures that are hidden using this*/
+.four, .three, .two {
+  display: none;
+}
+
+/*the space between the header and rows*/
+.space {
+  height: 50px;
+}
+
+.row-1, .row-4, .row-3, .row-2 {
+  height: 40px;
+  background-color: #4e89ae;
+  cursor: pointer;
+}
+.row-1:hover, .row-4:hover, .row-3:hover, .row-2:hover {
+  background-color: #444;
+}
+
+.row-2 {
+  /*the use of @extend*/
+  background-color: #43658b;
+}
+
+.row-3 {
+  /*the use of @extend*/
+  background-color: #ed6663;
+}
+
+.row-4 {
+  /*the use of @extend*/
+  background-color: #ffa372;
+}
+
+.container-circles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1px 5px;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-items: center;
+  grid-template-areas: "circle-1 circle-2 circle-3 cicle-4";
+  width: 40%;
+  margin: auto;
+  padding: 50px 0px 50px 0px;
+}
+
+.circle-1, .circle-4, .circle-3, .circle-2 {
+  grid-area: 1/1/2/2;
+  height: 70px;
+  width: 70px;
+  background-color: #4e89ae;
+  border-radius: 70px;
+  display: inline-block;
+  cursor: pointer;
+}
+.circle-1:hover, .circle-4:hover, .circle-3:hover, .circle-2:hover {
+  background-color: #444;
+}
+
+.circle-2 {
+  /*the use of @extend*/
+  grid-area: 1/2/2/3;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  background-color: #43658b;
+}
+
+.circle-3 {
+  /*the use of @extend*/
+  grid-area: 1/3/2/4;
+  height: 90px;
+  width: 90px;
+  border-radius: 90px;
+  background-color: #ed6663;
+}
+
+.circle-4 {
+  /*the use of @extend*/
+  grid-area: 1/4/2/5;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  background-color: #ffa372;
+}
+
+/*fotter styling*/
+footer {
+  background-color: #8ccff7;
+  height: 50px;
+}
+
+/*400 x 400 picture*/
+@media screen and (min-width: 801px) and (max-width: 3000px) {
+  .four {
+    display: block;
+  }
+}
+
+/*300 x 300 picture*/
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  .three {
+    display: block;
+  }
+}
+
+/*200 x 200 picture*/
+@media screen and (min-width: 100px) and (max-width: 480px) {
+  .two {
+    display: block;
+  }
+}
+
+/*to stack circles vertically after*/
+@media screen and (min-width: 100px) and (max-width: 620px) {
+  .container-circles {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 3px 1px;
+    grid-template-areas: "circle-1" "circle-2" "circle-3" "circle-4";
+    justify-items: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 620px) {
+  .circle-1, .circle-2, .circle-3, .circle-4 {
+    grid-area: circle-1;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 620px) {
+  .circle-2 {
+    grid-area: circle-2;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 620px) {
+  .circle-3 {
+    grid-area: circle-3;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 620px) {
+  .circle-4 {
+    grid-area: circle-4;
+  }
+}/*# sourceMappingURL=SCSS.css.map */
